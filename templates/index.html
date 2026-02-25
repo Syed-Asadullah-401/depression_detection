@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Detection using AI & Explainable Models</title>
+    <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- HOME PAGE VIEW -->
+    <section id="home-view" class="view active">
+        <div class="animated-background"></div>
+        <div class="home-container">
+            <div class="home-content fade-in">
+                <div class="research-badge">Research Project</div>
+                <h1 class="main-title">
+                    Depression Detection using AI &<br>
+                    <span class="highlight">Explainable Models</span>
+                </h1>
+                <p class="subtitle">
+                    A research-based mental health screening interface for university students
+                </p>
+                <button class="cta-button" id="launch-btn">
+                    <span>Launch Frontend</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="home-footer">
+                    <p>Powered by Advanced Machine Learning & Explainable AI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD VIEW -->
+    <section id="dashboard-view" class="view">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>DepressionAI</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#" id="nav-home">Home</a></li>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#" id="nav-logout">Logout</a></li>
+                    <li><a href="#" id="nav-about">About</a></li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+            <div class="dashboard-content">
+                <!-- Main Form Card -->
+                <div class="glass-card main-card">
+                    <div class="card-header">
+                        <h2>Depression Screening Dashboard</h2>
+                        <p>Enter student demographic and psychological indicators</p>
+                    </div>
+
+                    <form id="screening-form">
+                        <!-- Demographic Information -->
+                        <div class="form-section">
+                            <h3>Demographic Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" min="16" max="100" placeholder="Enter age" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="education">Education Level</label>
+                                    <select id="education" required>
+                                        <option value="">Select Level</option>
+                                        <option value="undergraduate">Undergraduate</option>
+                                        <option value="postgraduate">Postgraduate</option>
+                                        <option value="phd">PhD</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="university">University Type</label>
+                                    <select id="university" required>
+                                        <option value="">Select Type</option>
+                                        <option value="public">Public University</option>
+                                        <option value="private">Private University</option>
+                                        <option value="technical">Technical Institute</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="income">Monthly Family Income</label>
+                                    <select id="income" required>
+                                        <option value="">Select Range</option>
+                                        <option value="low">Below $2,000</option>
+                                        <option value="medium">$2,000 - $5,000</option>
+                                        <option value="high">$5,000 - $10,000</option>
+                                        <option value="very-high">Above $10,000</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="living">Living Area</label>
+                                    <select id="living" required>
+                                        <option value="">Select Area</option>
+                                        <option value="urban">Urban</option>
+                                        <option value="suburban">Suburban</option>
+                                        <option value="rural">Rural</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Psychological Factors -->
+                        <div class="form-section">
+                            <h3>Psychological Factors</h3>
+                            <div class="toggle-grid">
+                                <div class="toggle-group">
+                                    <label>Feeling Anxious</label>
+                                    <div class="toggle-buttons">
+                                        <input type="radio" name="anxious" value="yes" id="anxious-yes" required>
+                                        <label for="anxious-yes" class="toggle-btn">Yes</label>
+                                        <input type="radio" name="anxious" value="no" id="anxious-no">
+                                        <label for="anxious-no" class="toggle-btn">No</label>
+                                    </div>
+                                </div>
+
+                                <div class="toggle-group">
+                                    <label>Feeling Lonely</label>
+                                    <div class="toggle-buttons">
+                                        <input type="radio" name="lonely" value="yes" id="lonely-yes" required>
+                                        <label for="lonely-yes" class="toggle-btn">Yes</label>
+                                        <input type="radio" name="lonely" value="no" id="lonely-no">
+                                        <label for="lonely-no" class="toggle-btn">No</label>
+                                    </div>
+                                </div>
+
+                                <div class="toggle-group">
+                                    <label>Had Suicidal Thoughts</label>
+                                    <div class="toggle-buttons">
+                                        <input type="radio" name="suicidal" value="yes" id="suicidal-yes" required>
+                                        <label for="suicidal-yes" class="toggle-btn">Yes</label>
+                                        <input type="radio" name="suicidal" value="no" id="suicidal-no">
+                                        <label for="suicidal-no" class="toggle-btn">No</label>
+                                    </div>
+                                </div>
+
+                                <div class="toggle-group">
+                                    <label>Conflicts with Others</label>
+                                    <div class="toggle-buttons">
+                                        <input type="radio" name="conflicts" value="yes" id="conflicts-yes" required>
+                                        <label for="conflicts-yes" class="toggle-btn">Yes</label>
+                                        <input type="radio" name="conflicts" value="no" id="conflicts-no">
+                                        <label for="conflicts-no" class="toggle-btn">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lifestyle Factors -->
+                        <div class="form-section">
+                            <h3>Lifestyle Factors</h3>
+                            <div class="toggle-grid">
+                                <div class="toggle-group">
+                                    <label>Physical Activity</label>
+                                    <div class="toggle-buttons multi">
+                                        <input type="radio" name="activity" value="low" id="activity-low" required>
+                                        <label for="activity-low" class="toggle-btn">Low</label>
+                                        <input type="radio" name="activity" value="moderate" id="activity-moderate">
+                                        <label for="activity-moderate" class="toggle-btn">Moderate</label>
+                                        <input type="radio" name="activity" value="high" id="activity-high">
+                                        <label for="activity-high" class="toggle-btn">High</label>
+                                    </div>
+                                </div>
+
+                                <div class="toggle-group">
+                                    <label>Sound Sleep at Night</label>
+                                    <div class="toggle-buttons">
+                                        <input type="radio" name="sleep" value="yes" id="sleep-yes" required>
+                                        <label for="sleep-yes" class="toggle-btn">Yes</label>
+                                        <input type="radio" name="sleep" value="no" id="sleep-no">
+                                        <label for="sleep-no" class="toggle-btn">No</label>
+                                    </div>
+                                </div>
+
+                                <div class="toggle-group">
+                                    <label>Smoking Habit</label>
+                                    <div class="toggle-buttons">
+                                        <input type="radio" name="smoking" value="yes" id="smoking-yes" required>
+                                        <label for="smoking-yes" class="toggle-btn">Yes</label>
+                                        <input type="radio" name="smoking" value="no" id="smoking-no">
+                                        <label for="smoking-no" class="toggle-btn">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="button" class="predict-button" id="predict-btn">
+                            <span id="btn-text">Analyze Depression Risk</span>
+                            <span id="btn-loader" class="loader hidden"></span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Result Card (Hidden Initially) -->
+                <div class="glass-card result-card hidden" id="result-card">
+                    <div class="result-header">
+                        <h2>Screening Results</h2>
+                        <button class="close-result" id="close-result">&times;</button>
+                    </div>
+
+                    <div class="result-content">
+                        <div class="result-prediction">
+                            <div class="prediction-label">Prediction Result</div>
+                            <div class="prediction-value" id="prediction-value">Depression Detected</div>
+                        </div>
+
+                        <div class="risk-level">
+                            <span class="risk-badge" id="risk-badge">High Risk</span>
+                        </div>
+
+                        <div class="risk-score">
+                            <div class="score-label">Risk Score</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <div class="score-value" id="score-value">75%</div>
+                        </div>
+
+                        <div class="disclaimer">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                                <path d="M10 6V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="10" cy="13" r="0.5" fill="currentColor" stroke="currentColor"/>
+                            </svg>
+                            <p>This is a research screening tool, not a medical diagnosis. Please consult a healthcare professional for accurate assessment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
